@@ -13,7 +13,7 @@
 5. [License](#license)
 
 ## Description
-**IPhone UML Java** is a project to study UML diagrams and its implementation using Java, inspired on some IPhone's essential functions. It is divided into three interfaces: `PhoneDevice`, `MusicPlayer` and `InternetBrowser`, each with specific methods of interaction allowing user's input, executing operations based on data validity. The project was proposed by Digital Innovation One (DIO) to apply the knowledge gained from their courses.
+**IPhone UML Java** is a project to study UML diagrams and its implementation using Java, inspired on some IPhone's essential functions, such as: `PhoneDevice`, `MusicPlayer` and `InternetBrowser`, each with specific methods of interaction, allowing user's input and executing operations based on data validity. The project was proposed by Digital Innovation One (DIO) to apply the knowledge gained from their courses.
 
 ## How to use
 > ### ⚠ Pre-requisites:
@@ -23,14 +23,13 @@
 1. Clone this repository: `git clone https://github.com/lvamorim/iphone-uml-java.git`.
 2. Open the project in your preferred IDE.
 3. In `src/app` directory, try an operation:
-> - PhoneDevice - `call`, `answerCall` or `startVoicemail`.
-> - MusicPlayer - `play`, `pause` or `selectSong`.
-> - InternetBrowser - `showPage`, `addNewTab` or `refreshPage`.
+> PhoneDevice - `call`, `answerCall` or `startVoicemail`.<br>
+> MusicPlayer - `play`, `pause` or `selectSong`.<br>
+> InternetBrowser - `showPage`, `addNewTab` or `refreshPage`.
 4. Build and run the application.
 5. Try different inputs.
 
 ## Techniques
-- **Interface**: defining and implementing common behavior, promoting code consistency.
 - **List**: creating array to manage collections of data.
 - **Stream**: using Java's Stream API to perform operations on data collections effectively.
 - **Random**: generating random data to simulate real-world scenarios.
