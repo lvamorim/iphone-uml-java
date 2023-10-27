@@ -22,10 +22,23 @@
 
 1. Clone this repository: `git clone https://github.com/lvamorim/iphone-uml-java.git`.
 2. Open the project in your preferred IDE.
-3. In `src/app` directory, try an operation:
-> PhoneDevice - `call`, `answerCall` or `startVoicemail`.<br>
-> MusicPlayer - `play`, `pause` or `selectSong`.<br>
-> InternetBrowser - `showPage`, `addNewTab` or `refreshPage`.
+3. In `src/lv/iphone/Iphone.java` file, try any of the operations below:
+```
+  phoneDevice
+    .call();
+    .answerCall();
+    .startVoicemail();
+  
+  musicPlayer
+    .play();
+    .pause();
+    .selectSong();
+  
+  internetBrowser
+    .showPage();
+    .addNewTab();
+    .refreshPage();
+```
 4. Build and run the application.
 5. Try different inputs.
 
