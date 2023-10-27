@@ -3,37 +3,50 @@ package lv.iphone.musicplayer;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 
+import lv.iphone.common.DeviceRole;
 import lv.iphone.common.InputManager;
 
-public class MusicPlayer {
-  private SongList songList = new SongList();
-  private Song selectedSong = null;
-
+public class MusicPlayer extends SongList {
   public void play() {
+    DeviceRole.printDeviceRole();
+
     if (selectedSong == null) {
-      selectedSong = songList.selectRandomSong();
+      selectedSong = selectRandomSong();
     }
 
     System.out.println("Playing: " + selectedSong);
   }
 
   public void pause() {
+    DeviceRole.printDeviceRole();
+
     System.out.println("Paused.");
   }
 
   public void selectSong() {
-    System.out.println("Please, type the number of the song you want to listen:");
-    songList.showList();
-    
-    try {
-      selectedSong = songList.findSongById(InputManager.readInt());
-      System.out.println("Selected song: " + selectedSong);
+    DeviceRole.printDeviceRole();
 
-    } catch (InputMismatchException e) {
-      System.out.println("Wrong input. Please, type a number.");
+    System.out.println("Please, type the number of the song you want to listen:");
     
-    } catch (NoSuchElementException e) {
-      System.out.println("Song not found. Try again.");
+    while (true) {
+      try {
+        showList();
+
+        selectedSong = findSongById(InputManager.readInt());
+        System.out.println("Selected song: " + selectedSong);
+        break;
+
+      } catch (InputMismatchException e) {
+        InputManager.printErrorMessage(
+          "Wrong input. Please, type a number:"
+        );
+      
+      } catch (NoSuchElementException e) {
+        InputManager.printErrorMessage(
+          "Song not found. Please, try again:"
+        );
+
+      }
     }
   }
 }

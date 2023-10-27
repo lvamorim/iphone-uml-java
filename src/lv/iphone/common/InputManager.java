@@ -12,4 +12,9 @@ public class InputManager {
   public static int readInt() {
     return scanner.nextInt();
   }
+
+  public static void printErrorMessage(String message) {
+    System.out.println(message);
+    readLine();
+  }
 }

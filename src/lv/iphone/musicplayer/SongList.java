@@ -8,8 +8,14 @@ import java.util.Random;
 class SongList {
   private List<Song> songList = Arrays.asList(
     new Song("Trippie Redd ft. Playboi Carti", "Miss The Rage"),
-    new Song("Arca", "Rakata")
+    new Song("Arca", "Rakata"),
+    new Song("Lil Uzi Vert ft. BABYMETAL", "The End"),
+    new Song("Yeat", "Flawlëss"),
+    new Song("Kanye West", "Good Morning"),
+    new Song("Mariah Carey ft. ODB", "Fantasy"),
+    new Song("Ecco2k", "Peroxide")
   );
+  Song selectedSong = null;
 
   void showList() {
     songList.forEach(song -> System.out.println(song.getId() + ": " + song));

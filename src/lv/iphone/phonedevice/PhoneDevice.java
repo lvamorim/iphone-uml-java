@@ -1,46 +1,58 @@
 package lv.iphone.phonedevice;
 
 import java.util.InputMismatchException;
-import java.util.concurrent.ThreadLocalRandom;
 
+import lv.iphone.common.DeviceRole;
 import lv.iphone.common.InputManager;
 
-public class PhoneDevice extends FormatNumberAndMessage {
+public class PhoneDevice extends PhoneNumber {
   public void call() {
+    DeviceRole.printDeviceRole();
+
     System.out.println("Please, type a number to call:");
 
-    try {
-      int number = InputManager.readInt();
+    while (true) {
+      try {
+        inputPhoneNumber = InputManager.readInt();
 
-      if (Integer.toString(number).length() < 4) {
-        throw new IllegalArgumentException();
+        if (isValidPhoneNumber()) {
+          printActionWithPhoneNumber(
+            "Calling",
+            inputPhoneNumber,
+            "Call started."
+          );
+          break;
+        }
+
+        System.out.printf(
+          "The number must have at least %d digits. Please, try again:\n",
+          inputMinDigits
+        );
+        
+      } catch (InputMismatchException e) {
+        InputManager.printErrorMessage(
+          "Invalid input. Please, type a number."
+        );
       }
-
-      printMessageWithEllipsisAnimation(
-        "Calling: " + formatNumber(number),
-        "Call started."
-      );
-
-    } catch (InputMismatchException e) {
-      System.out.println("Invalid input. Please, type a number.");
-
-    } catch (IllegalArgumentException e) {
-      System.out.println("Invalid number length. Please, try again.");
     }
   }
 
   public void answerCall() {
-    int randomNumber = ThreadLocalRandom.current().nextInt(100000000, 1000000000);
+    DeviceRole.printDeviceRole();
 
-    printMessageWithEllipsisAnimation(
-      formatNumber(randomNumber) + " is calling",
+    printActionWithPhoneNumber(
+      "Receiving call from",
+      randomPhoneNumber,
       "Call answered."
     );
   }
 
   public void startVoicemail() {
-    printMessageWithEllipsisAnimation(
-      "Starting voicemail",
+    DeviceRole.printDeviceRole();
+
+    printActionWithPhoneNumber(
+      "Starting voicemail to",
+      randomPhoneNumber,
       "Voicemail done."
     );
   }
