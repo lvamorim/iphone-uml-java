@@ -5,7 +5,7 @@
   <br>
 </div>
 
-<img src="./uml.svg" alt="Iphone's UML Diagram">
+<img src="./UML.svg" alt="Iphone's UML Diagram">
 
 ## Topics
 1. [Description](#description)
