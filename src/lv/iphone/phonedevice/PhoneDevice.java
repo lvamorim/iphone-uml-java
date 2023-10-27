@@ -16,7 +16,7 @@ public class PhoneDevice extends PhoneNumber {
         inputPhoneNumber = InputManager.readInt();
 
         if (isValidPhoneNumber()) {
-          printActionWithPhoneNumber(
+          printPhoneAction(
             "Calling",
             inputPhoneNumber,
             "Call started."
@@ -24,11 +24,6 @@ public class PhoneDevice extends PhoneNumber {
           break;
         }
 
-        System.out.printf(
-          "The number must have at least %d digits. Please, try again:\n",
-          inputMinDigits
-        );
-        
       } catch (InputMismatchException e) {
         InputManager.printErrorMessage(
           "Invalid input. Please, type a number."
@@ -40,7 +35,7 @@ public class PhoneDevice extends PhoneNumber {
   public void answerCall() {
     DeviceRole.printDeviceRole();
 
-    printActionWithPhoneNumber(
+    printPhoneAction(
       "Receiving call from",
       randomPhoneNumber,
       "Call answered."
@@ -50,7 +45,7 @@ public class PhoneDevice extends PhoneNumber {
   public void startVoicemail() {
     DeviceRole.printDeviceRole();
 
-    printActionWithPhoneNumber(
+    printPhoneAction(
       "Starting voicemail to",
       randomPhoneNumber,
       "Voicemail done."

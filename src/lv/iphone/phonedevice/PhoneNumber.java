@@ -3,21 +3,24 @@ package lv.iphone.phonedevice;
 import java.util.concurrent.ThreadLocalRandom;
 
 class PhoneNumber {
-  int inputMinDigits = 3;
-  int randomMinDigits = 100000000;
-  int randomMaxDigits = 1000000000;
   int inputPhoneNumber;
-  int randomPhoneNumber = ThreadLocalRandom.current().nextInt(randomMinDigits, randomMaxDigits);
-
+  int randomPhoneNumber = ThreadLocalRandom.current().nextInt(100000000, 1000000000);
+  
   boolean isValidPhoneNumber() {
+    int inputMinDigits = 3;
+
     if (Integer.toString(inputPhoneNumber).length() < inputMinDigits) {
+      System.out.printf(
+        "The number must have at least %d digits. Please, try again:\n",
+        inputMinDigits
+      );
       return false;
     }
 
     return true;
   }
 
-  void printActionWithPhoneNumber(String startMessage, int phoneNumber, String endMessage) {
+  void printPhoneAction(String startMessage, int phoneNumber, String endMessage) {
     System.out.print(startMessage + " +" + phoneNumber + " ");
 
     for (int i = 0; i < 3; i++) {
